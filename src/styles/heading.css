@@ -26,6 +26,10 @@ img.logo {
     color: white;
 }
 
+.search-bar-container input::placeholder {
+    color: white;
+}
+
 .search-bar-container span {
     color: white;
 }
