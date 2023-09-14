@@ -1,0 +1,142 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img.logo {
+    width: 150px;
+}
+
+.search-bar-container {
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 37%;
+    height: 40px;
+    padding-right: 1em;
+}
+
+.search-bar-container input {
+    width: 95%;
+    height: inherit;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0 1em;
+    color: white;
+}
+
+.search-bar-container span {
+    color: white;
+}
+
+.links-and-menu {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.links-and-menu span.sign-in-btn {
+    color: white;
+}
+
+.menu-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #BE123C;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    padding-top: 1.2em;
+    width: 100vw;
+    position: relative;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 6em;
+    padding-right: 2em;
+    margin-top: 11em;
+    width: inherit;
+    position: relative;
+}
+
+.banner-content .about-popular-movie {
+    color: white;
+    width: 32%;
+}
+
+.about-popular-movie h2 {
+    font-size: 3rem;
+}
+
+.about-popular-movie .tag-ratings {
+    display: flex;
+    margin-top: .4em;
+    font-size: .8rem;
+}
+
+.tag-ratings .vote-rating {
+    margin-left: .5em;
+}
+
+.percentage-rate {
+    margin-left: 2.4em;
+    font-display: flex;
+    gap: .25em;
+}
+
+.about-popular-movie .about-movie-brief {
+    margin-top: 1.2em;
+    font-size: .8rem;
+    margin-right: 2em;
+}
+
+button.watch-trailer {
+    outline: none;
+    padding: .8em 1.7em;
+    margin-top: 2em;
+    display: flex;
+    gap: .7em;
+    color: white;
+    font-size: .84rem;
+    font-weight: 500;
+    background-color: #BE123C;
+    border: none;
+    border-radius: 6px;
+}
+
+.banner-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .8em;
+    font-size: .8rem;
+    color: white;
+    margin-top: 7em;
+    position: absolute;
+    right: 0;
+    margin-right: 3em;
+
+}
+
+/* banner ctrl settings */
+.ctrl-1 {
+    position: relative;
+}
+
+.ctrl-1::after {
+    content: "rgwrohrbr";
+    position: relative;
+    width: 40px;
+    height: 20px;
+    border-top: 40px solid white;
+    right: 0;
+    z-index: 100;
+}
