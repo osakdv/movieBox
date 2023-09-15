@@ -6,8 +6,9 @@
     box-sizing: border-box;
 }
 
-li, li {
+ul, li {
     list-style: none;
+    cursor: pointer;
 }
 
 a {

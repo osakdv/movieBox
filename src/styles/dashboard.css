@@ -1,12 +1,7 @@
 .dashboard {
   font-family: "Poppins", sans-serif !important;
-}
-
-.trailer-video iframe {
-  width: 75vw;
-  height: 55vh;
-  border-radius: 20px;
-  background-color: yellow;
+  display: flex;
+  overflow: hidden;
 }
 
 /* sidebar styling */
@@ -133,4 +128,25 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 }
+
+.dashboard .content {
+    overflow-y: scroll;
+    padding: 2em 2em 0 2em;
+    /* scrollbar-width: 0; */
+}
+
+.dashboard .content::-webkit-scrollbar {
+    /* display: none; */
+}
+
+/* movie screen */
+.trailer-video iframe {
+    width: 80vw;
+    height: 55vh;
+    border-radius: 20px;
+    background-color: yellow;
+  }
+
+  

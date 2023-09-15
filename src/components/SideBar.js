@@ -50,7 +50,7 @@ const SideBar = ({ currentPage }) => {
             </span>
             Home
           </li>
-          <li ref={moviesPage} onClick={(e) => pageSwitchHandler(e, "Movies", moviesPage)}>
+          <li  className="active-link" ref={moviesPage} onClick={(e) => pageSwitchHandler(e, "Movies", moviesPage)}>
             <Link to="/movies"></Link>
             <span>
               <FontAwesomeIcon icon={faVideo} />
@@ -59,7 +59,6 @@ const SideBar = ({ currentPage }) => {
           </li>
           <li
             ref={tvSeriesPage}
-            className="active-link"
             onClick={(e) => pageSwitchHandler(e, "Tv Series", tvSeriesPage)}
           >
             <Link to="/movies"></Link>
