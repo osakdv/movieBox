@@ -1,0 +1,136 @@
+.dashboard {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.trailer-video iframe {
+  width: 75vw;
+  height: 55vh;
+  border-radius: 20px;
+  background-color: yellow;
+}
+
+/* sidebar styling */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding-top: 3em;
+  padding-bottom: 3.5em;
+  border-radius: 0px 45px 45px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: #fff;
+  width: 226px;
+}
+
+.sidebar .logo-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+}
+
+.sidebar .logo-links .logo {
+  padding-left: 1.25em;
+}
+
+.sidebar .d-links {
+  display: flex;
+  flex-direction: column;
+  /* gap: em; */
+}
+
+.d-links li {
+  padding: 1.2em 0.1em 1.2em 1.25em;
+  color: #666;
+  font-size: .9rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  position: relative;
+}
+
+.d-links li.active-link {
+  background-color: rgba(190, 18, 60, 0.1);
+  color: #be123c;
+}
+
+.d-links li.active-link::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  border-left: 6px solid #be123c;
+  z-index: 100;
+  right: 0;
+  top: 0;
+}
+
+.d-links li:hover {
+  background-color: rgb(244, 243, 243);
+  color: #000000;
+}
+
+.quiz-access-sigining {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.quiz-access-sigining .quiz {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  height: 210px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(190, 18, 60, 0.7);
+  background: rgba(248, 231, 235, 0.4);
+  margin-left: 1.25em;
+  padding: 2.5em 1em 1em 1em;
+}
+
+.quiz-access-sigining .quiz h4 {
+  color: rgba(51, 51, 51, 0.8);
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.quiz p {
+  color: hsl(0, 0%, 40%);
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 9px;
+}
+
+.quiz button {
+  border-radius: 30px;
+  background: rgba(190, 18, 60, 0.2);
+  width: 112px;
+  height: 30px;
+  flex-shrink: 0;
+  margin-top: 8px;
+  color: #be123c;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.user-access-state {
+  display: flex;
+  margin-left: 3.5em;
+  gap: .9em;
+  color: #666;
+  font-size: .85rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
