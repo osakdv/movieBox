@@ -12,8 +12,6 @@ const MovieBanner = (props) => {
     const movieClickedHandler = (t) => {
       navigator(`/dashboard?title=${t}`)
     }
-
-    console.log(props)
     
   return (
     <div data-testId="movie-card" className="banner-details" onClick={() => movieClickedHandler(props.title)}>

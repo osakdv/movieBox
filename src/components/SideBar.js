@@ -30,7 +30,6 @@ const SideBar = ({ currentPage }) => {
       e.preventDefault(); 
       activePageStyle(pageRef);
       currentPage(pageName);
-      console.log(pageName)
     };
 
   return (

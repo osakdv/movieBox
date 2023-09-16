@@ -36,14 +36,12 @@ const Movies = ({movieName}) => {
       })
       .then((data) => {
         setFeaturedMovies(data);
-        console.log(data)
         setMovieLoaded(true);
         data.results.filter(data => {
           if(data.title === movieName) {
             movieOn = data
             setMName(data.title)
             setDescrip(data.overview)
-            console.log(movieOn)
           }
         })
       });

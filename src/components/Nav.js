@@ -21,14 +21,12 @@ const Navbar = () => {
   let searchEntry;
   const searchHandler = (e) => {
     searchEntry = e.target.value.trim();
-    console.log(searchEntry);
   };
 
   const navigate = useNavigate();
   const sendSearch = (event) => {
     if (event.keyCode === 13 && searchEntry) {
       navigate(`/results?search=${searchEntry}`);
-      console.log("search");
     }
   };
 

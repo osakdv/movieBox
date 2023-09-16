@@ -15,16 +15,12 @@ const Dashboard = () => {
     // Iterate through the query parameters
     for (const [key, value] of queryParams.entries()) {
       if (key === 'title') {
-        // Check if the parameter is named 'data' (adjust as needed)
         mName = value;
-        // console.log(mName)
       }
-      // You can add more conditions for other query parameters if needed
     }
 
   const [currentPage, setCurrentPage] = useState("Movies");
   const switchBetweenLinks = (pageName) => {
-    console.log(pageName);
     setCurrentPage(pageName);
   };
 
@@ -52,7 +48,6 @@ const Dashboard = () => {
         break;
     }
 
-    console.log(currentPage);
     return page;
   };
 

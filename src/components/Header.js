@@ -32,7 +32,6 @@ const Header = () => {
       .then((data) => {
         setPopularMov(data.results);
         setIsDoneLoading(true);
-        // console.log(data.results);
       });
   }, []);
 

@@ -32,7 +32,6 @@ const Home = () => {
       .then((data) => {
         setFeaturedMovies(data);
         setMovieLoaded(true);
-        console.log(data);
       });
   }, []);
 

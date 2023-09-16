@@ -3,7 +3,6 @@ import MovieBanner from "./MovieBanner";
 
 const FeaturedMovies = (props) => {
   const movieData = props.movieData.results;
-  console.log(movieData)
 
   return (
     <div className="featured-movies side-margin">
