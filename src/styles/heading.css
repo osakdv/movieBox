@@ -144,3 +144,19 @@ button.watch-trailer {
     right: 0;
     z-index: 100;
 }
+
+@media screen and (max-width: 450px) {
+    .header {
+        width: 100vw;
+        background-position: center;
+    }
+
+    .banner-content {
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    h2.p-movie-title {
+        font-size: 2rem;
+    }
+}

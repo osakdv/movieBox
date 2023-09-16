@@ -121,6 +121,7 @@ const Header = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
+        width: "100vw",
         width: "auto"
       }}
     >

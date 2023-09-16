@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Bookmark from "./Bookmark";
 import SideBar from "./components/SideBar";
 import Dashboardhome from "./Home2";
@@ -23,6 +23,9 @@ const Dashboard = () => {
   const switchBetweenLinks = (pageName) => {
     setCurrentPage(pageName);
   };
+
+  const navigator = useNavigate;
+  
 
   const getPage = () => {
     let page;
