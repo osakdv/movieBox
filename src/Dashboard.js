@@ -24,7 +24,6 @@ const Dashboard = () => {
     setCurrentPage(pageName);
   };
 
-  const navigator = useNavigate;
   
 
   const getPage = () => {

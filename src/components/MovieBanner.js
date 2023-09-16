@@ -10,7 +10,7 @@ const MovieBanner = (props) => {
   
     const navigator = useNavigate()
     const movieClickedHandler = (id) => {
-      navigator(`/movies?id=${id}`)
+      navigator(`/movies/?id=${id}`)
     }
     
   return (
