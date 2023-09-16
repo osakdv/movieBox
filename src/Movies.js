@@ -58,7 +58,7 @@ const Movies = ({movieId}) => {
           <div className="movie-title-year">
             <ul>
               <li data-testId="movie-title">{movieLoaded && featuredMovies.title}</li>
-              <li data-testId="movie-year">
+              <li data-testId="movie-release-date">
                 <span>·</span> {
                   movieLoaded  && new Date(featuredMovies.release_date).toLocaleString('en-US', { timeZone: 'UTC' })
                 }
