@@ -5,6 +5,7 @@ const TrailerVid = ({ getMovieName }) => {
   const [movieName, setMovieName] = useState("Barbie trailer");
   const [youtubeVidId, setYoutubeVidId] = useState("");
   const [videoFound, setVideoFound] = useState(false);
+  const [erroMsg, setErrMsg] = useState()
 
   const ytDataApiKey = "AIzaSyCub0hwMI2hUOwQRLlWb_E0bqvcaPe3oTY";
 
@@ -24,6 +25,9 @@ const TrailerVid = ({ getMovieName }) => {
           setYoutubeVidId(videoId);
           setVideoFound(true);
         }
+      })
+      .catch(error => {
+        setErrMsg(`Request failed - ${erroMsg}`)
       });
   }, []);
 

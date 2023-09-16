@@ -11,6 +11,7 @@ const Movies = ({movieId}) => {
   let movieOn;
   const [mName,setMName] = useState("Top Guns: Mervrick")
   const [descrip,setDescrip] = useState("After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to")
+  const [erroMsg, setErrMsg] = useState()
 
   const apiUrl =
     `https://api.themoviedb.org/3/movie/${movieId}`;
@@ -38,14 +39,11 @@ const Movies = ({movieId}) => {
         setFeaturedMovies(data);
         console.log(data)
         setMovieLoaded(true);
-        // data.results.filter(data => {
-        //   if(data.id === movieId) {
-        //     movieOn = data
-        //     setMName(data.title)
-        //     setDescrip(data.overview)
-        //   }
-        // })
-      });
+      })
+      .catch(error => {
+        setErrMsg(`Request failed - ${erroMsg}`)
+      })
+      ;
   }, []);
   
   return (

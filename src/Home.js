@@ -6,6 +6,7 @@ import Header from "./components/Header";
 const Home = () => {
   const [featuredMovies, setFeaturedMovies] = useState();
   const [movieLoaded, setMovieLoaded] = useState(false);
+  const [erroMsg, setErrMsg] = useState()
 
   const apiUrl = "https://api.themoviedb.org/3/movie/top_rated";
   const apiKey =
@@ -32,7 +33,11 @@ const Home = () => {
         setFeaturedMovies(data);
         // console.log(data)
         setMovieLoaded(true);
-      });
+      })
+      .catch(error => {
+        setErrMsg(`Request failed - ${erroMsg}`)
+      })
+      ;
   }, []);
 
   return (
