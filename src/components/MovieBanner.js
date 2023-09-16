@@ -29,7 +29,7 @@ const MovieBanner = (props) => {
         </span>
       </div>
       <small className="country-year" data-testId="movie-release-date">{
-        new Date(props.year).getFullYear()
+        new Date(props.year).toLocaleString('en-US', { timeZone: 'UTC' })
       }</small>
       <h3 className="movie-name" data-testId="movie-title">{props.title}</h3>
       <div className="imdb-rating">

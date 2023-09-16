@@ -7,8 +7,7 @@ const Home = () => {
   const [featuredMovies, setFeaturedMovies] = useState();
   const [movieLoaded, setMovieLoaded] = useState(false);
 
-  const apiUrl =
-    "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+  const apiUrl = "https://api.themoviedb.org/3/movie/popular";
   const apiKey =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2NjMWFmMDA1NGY3YzU4NWRjYmVhNjkzNjMyY2MzMSIsInN1YiI6IjY1MDBmYTIxNTU0NWNhMDBjNGRhZTdkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5VnhnVYC1DICaDCpVGEr3apASQMDaGe0iLmWnKv8myM";
 
@@ -31,6 +30,8 @@ const Home = () => {
       })
       .then((data) => {
         setFeaturedMovies(data);
+        console.log(data.runtime)
+        console.log(data)
         setMovieLoaded(true);
       });
   }, []);
