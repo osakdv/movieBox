@@ -9,13 +9,13 @@ const Searchresult = () => {
   const queryParams = new URLSearchParams(location.search);
   const searchValue = queryParams.get("search");
 
-  const apiKey =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2NjMWFmMDA1NGY3YzU4NWRjYmVhNjkzNjMyY2MzMSIsInN1YiI6IjY1MDBmYTIxNTU0NWNhMDBjNGRhZTdkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5VnhnVYC1DICaDCpVGEr3apASQMDaGe0iLmWnKv8myM";
-  const apiUrl = `https://api.themoviedb.org/3/search/movie?query=Barbie&api_key=${apiKey}`;
+  const apiKey = "57d35afcccabfa0bc77adb34ea5a2b18";
+  const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=${apiKey}`;
 
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [erroMsg, setErrMsg] = useState()
+  let movies;
+  const [loading, setLoading] = useState(false);
+  const [erroMsg, setErrMsg] = useState();
+  const [movieData, setMovieData] = useState();
 
   useEffect(() => {
     fetch(apiUrl)
@@ -26,9 +26,9 @@ const Searchresult = () => {
         return res.json();
       })
       .then((data) => {
-        setMovies(data);
-        console.log(data);
-        setLoading(false);
+        setMovieData(data);
+        console.log(data.results);
+        setLoading(true);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -43,16 +43,17 @@ const Searchresult = () => {
         <h2>Result</h2>
 
         {!loading ? (
-          <div className="loading-message">
-            "loading"
-          </div>
+          <div className="loading-message">"loading"</div>
         ) : (
           <div className="result-grid">
-            <MovieBanner />
-            <MovieBanner />
-            <MovieBanner />
-            <MovieBanner />
-            <MovieBanner />
+            {movieData.results.map((data) => {
+              return (
+                <div className="result-grid">
+                  <h2>{data.title}</h2>
+                  <MovieBanner movies={data} />
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
