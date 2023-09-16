@@ -9,7 +9,7 @@ const TrailerVid = ({ getMovieName }) => {
   const ytDataApiKey = "AIzaSyD5cBrxXCVgTjNpACpkJAHSmsltYkHFVBY";
 
   useEffect(() => {
-    fetch(¸
+    fetch(
       `https://www.googleapis.com/youtube/v3/search?key=${ytDataApiKey}&q=${getMovieName}%20trailer&part=snippet&maxResults=1&type=video`
     )
       .then((res) => {
