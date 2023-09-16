@@ -15,7 +15,7 @@ const MovieBanner = (props) => {
     
   return (
     <div className="banner-details" data-testid ="movie-card" onClick={() => movieClickedHandler(props.movieId)}>
-      <div className="type-fav" data-testId="movie-poster"
+      <div className="type-fav" data-testid="movie-poster"
       style={{
         backgroundImage: `url(${tmdbBaseUrl}${props.poster})`,
         backgroundSize: "cover",
@@ -28,10 +28,10 @@ const MovieBanner = (props) => {
           <FontAwesomeIcon icon={faHeart} />
         </span>
       </div>
-      <small className="country-year" data-testId="movie-release-date">{
+      <small className="country-year" data-testid="movie-release-date">{
         new Date(props.year).toLocaleString('en-US', { timeZone: 'UTC' })
       }</small>
-      <h3 className="movie-name" data-testId="movie-title">{props.title}</h3>
+      <h3 className="movie-name" data-testid="movie-title">{props.title}</h3>
       <div className="imdb-rating">
         <div className="logo-rate">
           <img src={imdbLogo} alt="Imdb" />

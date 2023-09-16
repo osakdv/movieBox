@@ -66,13 +66,13 @@ const Movies = ({movieId}) => {
               <li>
                 <span>·</span> PG-13
               </li>
-              <li data-testId="movie-runtime">
+              <li data-testid="movie-runtime">
                 <span>·</span> {movieLoaded  && featuredMovies.runtime}min
               </li>
             </ul>
 
             <div className="genre-container">
-              <small test-id="movie-genre">{
+              <small>{
                 movieLoaded && featuredMovies.genres[0].name
               }</small>
               <small>
@@ -94,7 +94,7 @@ const Movies = ({movieId}) => {
 
         <div className="bottom-details">
           <div className="left-side">
-            <p className="m-summary" data-testId="movie-overview">
+            <p className="m-summary" data-testid="movie-overview">
               {movieLoaded && featuredMovies.overview}
             </p>
 
@@ -148,9 +148,9 @@ const Movies = ({movieId}) => {
             </div>
             <div className="best-movies">
               <div className="mv-container">
-                <div className="movie-banner" data-testId="month-best-movie"></div>
-                <div className="movie-banner" data-testId="month-best-movie"></div>
-                <div className="movie-banner" data-testId="month-best-movie"></div>
+                <div className="movie-banner" data-testid="month-best-movie"></div>
+                <div className="movie-banner" data-testid="month-best-movie"></div>
+                <div className="movie-banner" data-testid="month-best-movie"></div>
               </div>
 
               <div className="brief-banner">
