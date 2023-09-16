@@ -5,7 +5,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import TrailerVid from "./components/TrailerVid";
 import "./styles/dashboard.css";
 
-const Movies = () => {
+const Movies = ({movieName}) => {
   const [featuredMovies, setFeaturedMovies] = useState();
   const [movieLoaded, setMovieLoaded] = useState(false);
 

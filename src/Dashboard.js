@@ -10,18 +10,14 @@ import Upcoming from "./Upcoming";
 const Dashboard = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    const dataParams = [];
+    let mName;;
   
     // Iterate through the query parameters
     for (const [key, value] of queryParams.entries()) {
       if (key === 'title') {
         // Check if the parameter is named 'data' (adjust as needed)
-        // dataParams.push(value);
-        // console.log(dataParams)
-      }
-      else if(key === 'year') {
-        dataParams.push(value);
-        console.log(dataParams)
+        mName = value;
+        // console.log(mName)
       }
       // You can add more conditions for other query parameters if needed
     }
@@ -40,7 +36,7 @@ const Dashboard = () => {
         page = <Dashboardhome />;
         break;
       case "Movies":
-        page = <Movies />;
+        page = <Movies movieName={mName}/>;
         break;
       case "Tv Series":
         page = <Series />;

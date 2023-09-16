@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/${title}/${year}" element={<Dashboard />} Component={Dashboard} />
+          <Route path="/dashboard/${title}" element={<Dashboard />} Component={Dashboard} />
         </Routes>
       </div>
     </Router>
