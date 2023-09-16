@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +17,26 @@ const Navbar = () => {
     }
   };
 
+  const inputElement = useRef();
+  let searchEntry;
+  const searchHandler = (e) => {
+    searchEntry = e.target.value.trim();
+    console.log(searchEntry);
+  };
+
+  const navigate = useNavigate();
+  const sendSearch = (event) => {
+    if (event.keyCode === 13 && searchEntry) {
+      navigate(`/results?search=${searchEntry}`);
+      console.log("search");
+    }
+  };
+
+  const sendSearchBtn = () => {
+      searchEntry && navigate(`/results?search=${searchEntry}`)
+    }
+    
+
   return (
     <nav className="navbar side-margin">
       <a href="#">
@@ -23,9 +44,16 @@ const Navbar = () => {
       </a>
 
       <div className="search-bar-container">
-        <input placeholder="What do you want to watch" type="text" name="searchBar" className="searchBar" />
-        <span>
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <input
+          placeholder="What do you want to watch"
+          type="text"
+          name="searchBar"
+          className="searchBar"
+          onChange={(e) => searchHandler(e)}
+          onKeyDown={(e) => sendSearch(e)}
+        />
+        <span className="search-icon" onClick={sendSearchBtn}>
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </span>
       </div>
 
