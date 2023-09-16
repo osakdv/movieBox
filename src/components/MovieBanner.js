@@ -9,12 +9,12 @@ const MovieBanner = (props) => {
     const tmdbBaseUrl = "https://image.tmdb.org/t/p/w500"; 
   
     const navigator = useNavigate()
-    const movieClickedHandler = (t) => {
-      navigator(`/dashboard?title=${t}`)
+    const movieClickedHandler = (id) => {
+      navigator(`/dashboard?id=${id}`)
     }
     
   return (
-    <div data-testId="movie-card" className="banner-details" onClick={() => movieClickedHandler(props.title)}>
+    <div data-testId="movie-card" className="banner-details" onClick={() => movieClickedHandler(props.movieId)}>
       <div className="type-fav" data-testId="movie-poster"
       style={{
         backgroundImage: `url(${tmdbBaseUrl}${props.poster})`,

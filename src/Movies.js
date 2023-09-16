@@ -5,7 +5,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import TrailerVid from "./components/TrailerVid";
 import "./styles/dashboard.css";
 
-const Movies = ({movieName}) => {
+const Movies = ({movieId}) => {
   const [featuredMovies, setFeaturedMovies] = useState();
   const [movieLoaded, setMovieLoaded] = useState(false);
   let movieOn;
@@ -13,7 +13,7 @@ const Movies = ({movieName}) => {
   const [descrip,setDescrip] = useState("After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to")
 
   const apiUrl =
-    "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+    `https://api.themoviedb.org/3/movie/${movieId}`;
   const apiKey =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2NjMWFmMDA1NGY3YzU4NWRjYmVhNjkzNjMyY2MzMSIsInN1YiI6IjY1MDBmYTIxNTU0NWNhMDBjNGRhZTdkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5VnhnVYC1DICaDCpVGEr3apASQMDaGe0iLmWnKv8myM";
 
@@ -36,41 +36,50 @@ const Movies = ({movieName}) => {
       })
       .then((data) => {
         setFeaturedMovies(data);
+        console.log(data)
         setMovieLoaded(true);
-        data.results.filter(data => {
-          if(data.title === movieName) {
-            movieOn = data
-            setMName(data.title)
-            setDescrip(data.overview)
-          }
-        })
+        // data.results.filter(data => {
+        //   if(data.id === movieId) {
+        //     movieOn = data
+        //     setMName(data.title)
+        //     setDescrip(data.overview)
+        //   }
+        // })
       });
   }, []);
   
   return (
     <div className="movie">
       {/* Movie player and details */}
-      {movieLoaded && <TrailerVid getMovieName={`${mName} trailer`} />}
+      {movieLoaded && <TrailerVid getMovieName={`${featuredMovies.title} trailer`} />}
 
       <div className="movieDetails">
         <div className="top-details">
           <div className="movie-title-year">
             <ul>
-              <li>{movieLoaded && mName}</li>
-              <li>
-                <span>·</span> 2022
+              <li data-testId="movie-title">{movieLoaded && featuredMovies.title}</li>
+              <li data-testId="movie-year">
+                <span>·</span> {
+                  movieLoaded  && new Date(featuredMovies.release_date).toLocaleString('en-US', { timeZone: 'UTC' })
+                }
               </li>
               <li>
                 <span>·</span> PG-13
               </li>
-              <li>
-                <span>·</span> 2h 10min
+              <li data-testId="movie-runtime">
+                <span>·</span> {movieLoaded  && featuredMovies.runtime}min
               </li>
             </ul>
 
             <div className="genre-container">
-              <small>Action</small>
-              <small>Drama</small>
+              <small test-id="movie-genre">{
+                movieLoaded && featuredMovies.genres[0].name
+              }</small>
+              <small>
+              {
+                movieLoaded && featuredMovies.genres[1].name
+              }
+              </small>
             </div>
           </div>
 
@@ -79,14 +88,14 @@ const Movies = ({movieName}) => {
               <FontAwesomeIcon icon={faStar} />
             </span>
 
-            <div className="r-num">8.7/10</div>
+            <div className="r-num">{movieLoaded && featuredMovies.vote_average}/10</div>
           </div>
         </div>
 
         <div className="bottom-details">
           <div className="left-side">
-            <p className="m-summary" data-testId="trailer-m-summary">
-              {movieLoaded && descrip}
+            <p className="m-summary" data-testId="movie-overview">
+              {movieLoaded && featuredMovies.overview}
             </p>
 
             <div className="director-write-star">

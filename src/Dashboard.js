@@ -10,12 +10,12 @@ import Upcoming from "./Upcoming";
 const Dashboard = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    let mName;;
+    let movieId;
   
     // Iterate through the query parameters
     for (const [key, value] of queryParams.entries()) {
-      if (key === 'title') {
-        mName = value;
+      if (key === 'id') {
+        movieId = value;
       }
     }
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
         page = <Dashboardhome />;
         break;
       case "Movies":
-        page = <Movies movieName={mName}/>;
+        page = <Movies movieId={movieId}/>;
         break;
       case "Tv Series":
         page = <Series />;
