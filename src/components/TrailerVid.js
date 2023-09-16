@@ -10,7 +10,7 @@ const TrailerVid = ({ getMovieName }) => {
 
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${ytDataApiKey}&q=${movieName}%20trailer&part=snippet&maxResults=1&type=video`
+      `https://www.googleapis.com/youtube/v3/search?key=${ytDataApiKey}&q=${getMovieName}%20trailer&part=snippet&maxResults=1&type=video`
     )
       .then((res) => {
         if (!res.ok) {

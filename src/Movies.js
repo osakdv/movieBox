@@ -8,6 +8,9 @@ import "./styles/dashboard.css";
 const Movies = ({movieName}) => {
   const [featuredMovies, setFeaturedMovies] = useState();
   const [movieLoaded, setMovieLoaded] = useState(false);
+  let movieOn;
+  const [mName,setMName] = useState("Top Guns: Mervrick")
+  const [descrip,setDescrip] = useState("After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to")
 
   const apiUrl =
     "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
@@ -33,21 +36,29 @@ const Movies = ({movieName}) => {
       })
       .then((data) => {
         setFeaturedMovies(data);
+        console.log(data)
         setMovieLoaded(true);
-        console.log(data);
+        data.results.filter(data => {
+          if(data.title === movieName) {
+            movieOn = data
+            setMName(data.title)
+            setDescrip(data.overview)
+            console.log(movieOn)
+          }
+        })
       });
   }, []);
   
   return (
     <div className="movie">
       {/* Movie player and details */}
-      <TrailerVid getMovieName={"d"} />
+      {movieLoaded && <TrailerVid getMovieName={`${mName} trailer`} />}
 
       <div className="movieDetails">
         <div className="top-details">
           <div className="movie-title-year">
             <ul>
-              <li>Top Guns: Mervrick</li>
+              <li>{movieLoaded && mName}</li>
               <li>
                 <span>·</span> 2022
               </li>
@@ -77,10 +88,7 @@ const Movies = ({movieName}) => {
         <div className="bottom-details">
           <div className="left-side">
             <p className="m-summary" data-testId="trailer-m-summary">
-              After thirty years, Maverick is still pushing the envelope as a
-              top naval aviator, but must confront ghosts of his past when he
-              leads TOP GUN's elite graduates on a mission that demands the
-              ultimate sacrifice from those chosen to.
+              {movieLoaded && descrip}
             </p>
 
             <div className="director-write-star">
