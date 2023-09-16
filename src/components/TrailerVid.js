@@ -6,7 +6,7 @@ const TrailerVid = ({ getMovieName }) => {
   const [youtubeVidId, setYoutubeVidId] = useState("");
   const [videoFound, setVideoFound] = useState(false);
 
-  const ytDataApiKey = "AIzaSyBkfZHPoxV4IIeuxq0Rn-_eC7vjaHyjv0c";
+  const ytDataApiKey = "AIzaSyD5cBrxXCVgTjNpACpkJAHSmsltYkHFVBY";
 
   useEffect(() => {
     fetch(
