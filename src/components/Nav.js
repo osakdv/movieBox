@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -37,9 +38,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar side-margin">
-      <a href="#">
+      <Link to="/">
         <img className="logo" src={logo} alt="MovieBox" />
-      </a>
+      </Link>
 
       <div className="search-bar-container">
         <input

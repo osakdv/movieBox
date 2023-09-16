@@ -9,21 +9,15 @@ const Searchresult = () => {
   const queryParams = new URLSearchParams(location.search);
   const searchValue = queryParams.get("search");
 
-  const apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2NjMWFmMDA1NGY3YzU4NWRjYmVhNjkzNjMyY2MzMSIsInN1YiI6IjY1MDBmYTIxNTU0NWNhMDBjNGRhZTdkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5VnhnVYC1DICaDCpVGEr3apASQMDaGe0iLmWnKv8myM";
+  const apiKey =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2NjMWFmMDA1NGY3YzU4NWRjYmVhNjkzNjMyY2MzMSIsInN1YiI6IjY1MDBmYTIxNTU0NWNhMDBjNGRhZTdkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5VnhnVYC1DICaDCpVGEr3apASQMDaGe0iLmWnKv8myM";
   const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchValue}`;
-
-  const options = {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-  };
 
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(apiUrl, options)
+    fetch(apiUrl)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Request failed");
@@ -31,15 +25,15 @@ const Searchresult = () => {
         return res.json();
       })
       .then((data) => {
-        setMovies(data.results);
-        console.log(data.results)
+        setMovies(data);
+        console.log(data);
         setLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
         setLoading(false);
       });
-  }, [apiUrl, options]);
+  }, [apiUrl]);
   return (
     <div className="search-result">
       <Navbar />
@@ -47,13 +41,19 @@ const Searchresult = () => {
       <div className="result-content">
         <h2>Result</h2>
 
-        <div className="result-grid">
-          <MovieBanner />
-          <MovieBanner />
-          <MovieBanner />
-          <MovieBanner />
-          <MovieBanner />
-        </div>
+        {!loading ? (
+          <div className="loading-message">
+            "loading"
+          </div>
+        ) : (
+          <div className="result-grid">
+            <MovieBanner />
+            <MovieBanner />
+            <MovieBanner />
+            <MovieBanner />
+            <MovieBanner />
+          </div>
+        )}
       </div>
     </div>
   );
