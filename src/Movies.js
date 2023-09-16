@@ -57,8 +57,8 @@ const Movies = ({movieId}) => {
         <div className="top-details">
           <div className="movie-title-year">
             <ul>
-              <li>{movieLoaded && featuredMovies.title}</li>
-              <li>
+              <li data-testid = "movie-title">{movieLoaded && featuredMovies.title}</li>
+              <li data-testid = "movie-release-date">
                 <span>·</span> {
                   movieLoaded  && new Date(featuredMovies.release_date).toLocaleString('en-US', { timeZone: 'UTC' })
                 }
@@ -66,7 +66,7 @@ const Movies = ({movieId}) => {
               <li>
                 <span>·</span> PG-13
               </li>
-              <li>
+              <li data-testId="movie-runtime">
                 <span>·</span> {movieLoaded  && featuredMovies.runtime}min
               </li>
             </ul>
@@ -94,7 +94,7 @@ const Movies = ({movieId}) => {
 
         <div className="bottom-details">
           <div className="left-side">
-            <p className="m-summary">
+            <p className="m-summary" data-testId="movie-overview">
               {movieLoaded && featuredMovies.overview}
             </p>
 
