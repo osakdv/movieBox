@@ -57,8 +57,8 @@ const Movies = ({movieId}) => {
         <div className="top-details">
           <div className="movie-title-year">
             <ul>
-              <li data-testId="movie-title">{movieLoaded && featuredMovies.title}</li>
-              <li data-testId="movie-release-date">
+              <li>{movieLoaded && featuredMovies.title}</li>
+              <li>
                 <span>·</span> {
                   movieLoaded  && new Date(featuredMovies.release_date).toLocaleString('en-US', { timeZone: 'UTC' })
                 }
@@ -66,7 +66,7 @@ const Movies = ({movieId}) => {
               <li>
                 <span>·</span> PG-13
               </li>
-              <li data-testId="movie-runtime">
+              <li>
                 <span>·</span> {movieLoaded  && featuredMovies.runtime}min
               </li>
             </ul>
@@ -94,24 +94,24 @@ const Movies = ({movieId}) => {
 
         <div className="bottom-details">
           <div className="left-side">
-            <p className="m-summary" data-testId="movie-overview">
+            <p className="m-summary">
               {movieLoaded && featuredMovies.overview}
             </p>
 
             <div className="director-write-star">
               <p>
                 Director :
-                <span data-testId="trailer-m-director">Joseph Kosinski</span>
+                <span>Joseph Kosinski</span>
               </p>
               <p>
                 Writters :
-                <span data-testId="trailer-m-writters">
+                <span>
                   Jim Cash, Jack Epps Jr, Peter Craig
                 </span>
               </p>
               <p>
                 Star :
-                <span data-testId="trailer-m-stars">
+                <span>
                   Tom Cruise, Jennifer Connelly, Miles Teller
                 </span>
               </p>

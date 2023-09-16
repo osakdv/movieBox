@@ -36,7 +36,7 @@ const SideBar = ({ currentPage }) => {
     <div className="sidebar">
       <div className="logo-links">
         {/* logo */}
-        <Link to="/movies">
+        <Link to="/">
           <img src={logo} alt="MovieBox" className="logo" />
         </Link>
 
