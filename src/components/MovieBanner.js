@@ -12,10 +12,12 @@ const MovieBanner = (props) => {
     const movieClickedHandler = (t) => {
       navigator(`/dashboard?title=${t}`)
     }
+
+    console.log(props)
     
   return (
-    <div className="banner-details" onClick={() => movieClickedHandler(props.title)}>
-      <div className="type-fav"
+    <div data-testId="movie-card" className="banner-details" onClick={() => movieClickedHandler(props.title)}>
+      <div className="type-fav" data-testId="movie-poster"
       style={{
         backgroundImage: `url(${tmdbBaseUrl}${props.poster})`,
         backgroundSize: "cover",
@@ -28,8 +30,10 @@ const MovieBanner = (props) => {
           <FontAwesomeIcon icon={faHeart} />
         </span>
       </div>
-      <small className="country-year">USA, 2006</small>
-      <h3 className="movie-name">{props.title}</h3>
+      <small className="country-year" data-testId="movie-release-date">{
+        new Date(props.year).getFullYear()
+      }</small>
+      <h3 className="movie-name" data-testId="movie-title">{props.title}</h3>
       <div className="imdb-rating">
         <div className="logo-rate">
           <img src={imdbLogo} alt="Imdb" />
