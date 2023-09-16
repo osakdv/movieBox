@@ -9,9 +9,13 @@ const Searchresult = () => {
             <Navbar />
 
             <div className="result-content">
-                <h2>Resnkdbdbjdddcdjdcbjdjdbdbjult</h2>
+                <h2>Result</h2>
 
                 <div className="result-grid">
+                    <MovieBanner />
+                    <MovieBanner />
+                    <MovieBanner />
+                    <MovieBanner />
                     <MovieBanner />
                 </div>
             </div>

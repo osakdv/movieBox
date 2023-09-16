@@ -1,3 +1,15 @@
 .search-result {
     color: black !important;
+    padding-top: 1em;
+}
+
+.search-result .result-content {
+    padding: 2em 6em;
+}
+
+.search-result .result-content .result-grid {
+    margin-top: 3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: space-between;
 }
