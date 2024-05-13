@@ -18,7 +18,7 @@ const Footer = () => {
         <a href="#">Privacy & Policy</a>
         <a href="#">Press Room</a>
       </div>
-      <p className="copy-right">© 2021 MovieBox by Adriana Eka Prayudha</p>
+      <p className="copy-right">© 2021 MovieBox by Gaius</p>
     </div>
   );
 };
